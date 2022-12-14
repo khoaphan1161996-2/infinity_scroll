@@ -1,10 +1,9 @@
-import React, { useState, useRef, useCallback } from "react";
-import useItemSearch from "./useItemSearch";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import React, { useCallback, useRef, useState } from "react";
 import "./App.css";
 import RenderItem from "./RenderItem/RenderItem";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
+import useItemSearch from "./useItemSearch";
 
 export default function App() {
 	const [pageNumber, setPageNumber] = useState(1);
@@ -35,7 +34,6 @@ export default function App() {
 					justifyContent: "center",
 					pt: 2,
 					pb: 2,
-					m: 10,
 				}}
 			>
 				{items.length > 0 &&

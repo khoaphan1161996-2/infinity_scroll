@@ -1,41 +1,34 @@
-import React from "react";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
 import moment from "moment";
-import { Box, Grid, Paper, Card, CardMedia, Typography } from "@mui/material";
+import React from "react";
 
 const RenderItem = ({ item }) => {
 	return (
 		<Card
 			sx={{
 				display: "flex",
-				height: { xs: "20vh", sm: "30vh", md: "40vh" },
 				direction: "column",
+				marginBottom: 4,
+				boxShadow: "none",
 			}}
-			mb={2}
 		>
-			<Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-				<Grid item xs={8}>
-					{/* <Box sx={{ flexBasis: { xs: "50%", sm: "50%", md: "50%" } }} pb={10}> */}
+			<Grid container spacing={2}>
+				<Grid item xs={12} md={8} lg={6}>
 					<CardMedia
 						component="img"
 						sx={{
-							width: {
-								xs: 200,
-								sm: 200,
-								md: 500,
-							},
-							height: {
-								xs: "auto",
-							},
+							width: "100%",
+
+							height: "auto",
+
 							borderRadius: 10,
 						}}
 						image={item.node.field_photo_image_section}
 						alt="images"
 						loading="lazy"
 					/>
-					{/* </Box>{" "} */}
 				</Grid>
-				<Grid item xs={4}>
-					{/* <Box sx={{ flexBasis: { xs: "50%", sm: "50%", md: "50%" } }} pb={2}> */}
+				<Grid item xs={12} md={4} lg={6}>
 					<Typography
 						variant="h6"
 						gutterBottom
@@ -60,9 +53,8 @@ const RenderItem = ({ item }) => {
 							fontStyle: "italic",
 						}}
 					>
-						{moment(item.node.last_update).format("ll, h:mm A")} IST
+						{moment(item.node.last_update * 1000).format("ll, h:mm A")} IST
 					</Typography>
-					{/* </Box>{" "} */}
 				</Grid>
 			</Grid>
 		</Card>
